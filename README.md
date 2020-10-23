@@ -1,16 +1,12 @@
-# flutter_dojo_step_counter
+# Contapassi WOM
 
-A new Flutter application.
 
-## Getting Started
+## FlutterDojo
 
-This project is a starting point for a Flutter application.
+Il FlutterDojo è stato costituito dal Google Development Group di Urbino, ospitato da Digit srl, spinoff del nostro Ateneo, per offrire agli sviluppatori e agli studenti di Informatica un'occasione informale per discutere e approfondire tematiche su Flutter, il nuovo framework cross-platform di Google.
 
-A few resources to get you started if this is your first Flutter project:
+L'emergenza sanitaria ci impone di spostare online anche queste occasioni di incontro.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Gian Marco Di Francesco, ex studente e pioniere di Flutter, guida gli incontri per condividere l'esperienza maturata nello sviluppo di applicazioni cross-platform. Durante gli appuntamenti online svilupperà con i partecipanti un'applicazione mobile, affrontando insieme le situazioni comuni dello sviluppo con Flutter (gestione dello stato, persistenza dei dati, ...), incontro dopo incontro.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Gli incontri saranno gestiti tramite Google Meet, con sessioni nelle quali i partecipanti potranno interagire e porre domande sullo sviluppo del progetto.
