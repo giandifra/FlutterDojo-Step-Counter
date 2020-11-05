@@ -1,6 +1,11 @@
 import 'dart:math';
 
+import 'package:fit_kit/fit_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:stepcounter/screens/home/widgets/weekly_steps.dart';
+import 'package:stepcounter/services/steps_service.dart';
+
+import 'widgets/daily_steps.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,6 +18,12 @@ class _HomePageState extends State<HomePage> {
 
   // Data corrente
   final _date = DateTime.now();
+  StepsService stepsService;
+  @override
+  void initState() {
+    super.initState();
+    stepsService = StepsService();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,38 +40,27 @@ class _HomePageState extends State<HomePage> {
               height: 20,
             ),
             Text(
-              _date.toString(),
+              _date.toIso8601String(),
               textAlign: TextAlign.center,
             ),
             SizedBox(
               height: 20,
             ),
             Spacer(),
-            Text(
-              '$_steps\npassi',
-              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+            DailySteps(
+              steps: _steps,
             ),
             Spacer(),
-            Container(
-              color: Colors.red,
-              height: 250,
-              child: Container(
-                color: Colors.green,
-                child: Center(
-                  child: Text('Sommario settimanale'),
-                ),
-              ),
-            ),
+            WeeklySteps(),
             Spacer(),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.refresh),
-        onPressed: () {
+        onPressed: () async {
           //leggo i passi
-          var newSteps = readSteps();
+          var newSteps = await stepsService.readSteps();
 
           // Aggiorno l'interfaccia
           setState(() {
@@ -69,11 +69,5 @@ class _HomePageState extends State<HomePage> {
         },
       ),
     );
-  }
-
-  // Metodo per leggere i passi effettuati
-  int readSteps() {
-    int steps = Random().nextInt(20000);
-    return steps;
   }
 }

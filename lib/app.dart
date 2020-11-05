@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
+import 'screens/home/home_page.dart';
 
 // Radice dell'albero dei widget
 class StepCounterApp extends StatelessWidget {
