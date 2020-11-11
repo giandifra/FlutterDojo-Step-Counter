@@ -1,11 +1,8 @@
-import 'dart:math';
-
-import 'package:fit_kit/fit_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:stepcounter/screens/home/widgets/weekly_steps.dart';
-import 'package:stepcounter/services/steps_service.dart';
+import 'package:flutter_dojo_step_counter/services/steps_service.dart';
 
 import 'widgets/daily_steps.dart';
+import 'widgets/weekly_steps.dart';
 
 class HomePage extends StatefulWidget {
   @override
