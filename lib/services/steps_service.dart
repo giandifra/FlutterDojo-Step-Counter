@@ -3,31 +3,39 @@ import 'package:fit_kit/fit_kit.dart';
 
 class StepsService {
   // Metodo per leggere i passi effettuati
-  Future<int> readSteps() async {
+  Future<Map<DateTime, int>> readSteps() async {
     final permission = await FitKit.requestPermissions([DataType.STEP_COUNT]);
     if (permission) {
       try {
+        final now = DateTime.now();
+
         final results = await FitKit.read(
           DataType.STEP_COUNT,
-          dateFrom: DateTime.now().subtract(Duration(days: 2)),
-          dateTo: DateTime.now(),
+          dateFrom: DateTime(now.year, now.month, now.day)
+              .subtract(Duration(days: 7)),
+          dateTo: now,
         );
-        int steps = 0;
+
+        final weeklySteps = <DateTime, int>{};
+
         for (final item in results) {
-          if (item.dateTo.isToday()) {
-            steps += item.value;
+          final date = item.dateTo.midnight;
+          if (weeklySteps.containsKey(date)) {
+            weeklySteps[date] += item.value;
+          } else {
+            weeklySteps[date] = item.value;
           }
         }
-        return steps;
+        return weeklySteps;
       } on UnsupportedException catch (e) {
         print(e);
-        return -1;
+        return <DateTime, int>{};
       } catch (e) {
         print(e);
-        return -1;
+        return <DateTime, int>{};
       }
     } else {
-      return -1;
+      return <DateTime, int>{};
     }
   }
 }
