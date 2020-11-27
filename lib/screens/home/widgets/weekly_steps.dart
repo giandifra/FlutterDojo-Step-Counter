@@ -37,7 +37,7 @@ class WeeklySteps extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    Text((stepsState.weeklySteps.keys.elementAt(i - 1))
+                    Text((stepsState.weeklySteps.keys.elementAt(i - 1).day)
                         .toString()),
                   ],
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dojo_step_counter/services/steps_service.dart';
+import 'package:flutter_dojo_step_counter/services/wom_repository/wom_repository.dart';
 
 enum StepsStateProcess { loading, complete, error }
 
